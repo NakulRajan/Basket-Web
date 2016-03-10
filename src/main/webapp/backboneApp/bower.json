@@ -1,0 +1,26 @@
+{
+  "name": "Basket",
+  "version": "0.0.1",
+  "authors": [
+    "Nakul Rajan <rajannakul@gmail.com>"
+  ],
+  "description": "Shopping List",
+  "main": "",
+  "moduleType": [],
+  "license": "MIT",
+  "homepage": "",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "jquery": "~2.2.0",
+    "requirejs": "~2.1.22",
+    "backbone": "~1.2.3",
+    "text": "~2.0.14",
+    "backbonefire": "~0.5.1"
+  }
+}

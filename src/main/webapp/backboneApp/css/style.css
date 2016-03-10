@@ -1,0 +1,12 @@
+.itemList{
+    list-style-type: none;
+    min-height: 200px;
+}
+
+.items{
+    padding: 10px;
+}
+
+.list{
+    background-color: #f1f1f1;
+}
