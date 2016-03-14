@@ -1,4 +1,4 @@
-package com.shopping.basket;
+package com.shopping.basket.Model;
 
 /**
  * User object

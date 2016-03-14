@@ -1,8 +1,9 @@
-package com.shopping.basket;
+package com.shopping.basket.API;
 
 import com.google.api.server.spi.config.Api;
 import com.google.api.server.spi.config.ApiMethod;
 import com.google.api.server.spi.config.Named;
+import com.shopping.basket.Model.UserModel;
 
 
 /** An endpoint class we are exposing for user related stuff */
