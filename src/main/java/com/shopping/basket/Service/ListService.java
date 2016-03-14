@@ -9,7 +9,7 @@ import java.util.Map;
 import java.util.Random;
 
 public class ListService {
-    Map<String, Item> map = Database.getItems();
+    Map<String, Item> itemsMap = Database.getItems();
 
     public ListService(){
         String[] itemNames = {"Cereals", "Onion", "Tomato", "Carrot"};
@@ -17,9 +17,8 @@ public class ListService {
         //creating some placeholder data
         for(int i=0; i < 4; i++){
             Item item = new Item(uniqueId[i], itemNames[i]);
-            map.put(uniqueId[i], item);
+            itemsMap.put(uniqueId[i], item);
         }
-
     }
 
     /**
@@ -30,7 +29,7 @@ public class ListService {
         Random rand = new Random();
         StringBuilder str = new StringBuilder();
 
-        for(int i=0; i<10; i++){
+        for(int i=0; i<5; i++){
             int index = rand.nextInt(25);
             Character ch = alphabets.charAt(index);
             str.append(ch);
@@ -44,11 +43,43 @@ public class ListService {
      */
     public List<Item> getList(){
         List<Item> items = new ArrayList<>();
-        for(String itemId: map.keySet()){
-            items.add(map.get(itemId));
+        for(String itemId: itemsMap.keySet()){
+            items.add(itemsMap.get(itemId));
         }
         return items;
     }
 
+    /**
+     * Returns a single item in the list.
+     */
+    public Item getItem(String itemId){
+        return itemsMap.get(itemId);
+    }
 
+    /**
+     * Adds a new item to the list.
+     */
+    public Item addItem(Item item){
+        item.setItemId(generateUniqueId());
+        itemsMap.put(item.getItemId(), item);
+        return item;
+    }
+
+    /**
+     * Update item in the list.
+     */
+    public Item updateItem(Item item){
+        if(item.getItemId() == null){
+            return null;
+        }
+        itemsMap.put(item.getItemId(), item);
+        return item;
+    }
+
+    /**
+     * Deletes a item
+     */
+    public void deleteItem(String itemId){
+        itemsMap.remove(itemId);
+    }
 }

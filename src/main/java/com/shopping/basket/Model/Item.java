@@ -1,8 +1,11 @@
 package com.shopping.basket.Model;
 
+import javax.xml.bind.annotation.XmlRootElement;
+
 /**
  * Represents a single item in the list.
  */
+@XmlRootElement
 public class Item {
     private String itemId;
     private String itemName;
