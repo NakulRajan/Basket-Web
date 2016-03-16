@@ -1,12 +1,18 @@
 package com.shopping.basket.Model;
 
+
+import com.googlecode.objectify.annotation.Entity;
+import com.googlecode.objectify.annotation.Id;
+
 import javax.xml.bind.annotation.XmlRootElement;
 
 /**
  * Represents a single item in the list.
  */
 @XmlRootElement
+@Entity
 public class Item {
+    @Id
     private String itemId;
     private String itemName;
 

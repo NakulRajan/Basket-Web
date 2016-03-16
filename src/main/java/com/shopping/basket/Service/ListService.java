@@ -1,26 +1,16 @@
 package com.shopping.basket.Service;
 
-import com.shopping.basket.Database.Database;
+import com.googlecode.objectify.Key;
+import com.googlecode.objectify.Result;
+import com.googlecode.objectify.cmd.Query;
 import com.shopping.basket.Model.Item;
 
-import java.util.ArrayList;
 import java.util.List;
-import java.util.Map;
 import java.util.Random;
 
+import static com.shopping.basket.OfyService.ofy;
+
 public class ListService {
-    Map<String, Item> itemsMap = Database.getItems();
-
-    public ListService(){
-        String[] itemNames = {"Cereals", "Onion", "Tomato", "Carrot"};
-        String[] uniqueId = {"ASERF", "WDFGT", "AREDS", "LJKUR"};
-        //creating some placeholder data
-        for(int i=0; i < 4; i++){
-            Item item = new Item(uniqueId[i], itemNames[i]);
-            itemsMap.put(uniqueId[i], item);
-        }
-    }
-
     /**
      * Utility function to generate unique ids
      */
@@ -42,10 +32,9 @@ public class ListService {
      * Returns all the items in the list.
      */
     public List<Item> getList(){
-        List<Item> items = new ArrayList<>();
-        for(String itemId: itemsMap.keySet()){
-            items.add(itemsMap.get(itemId));
-        }
+        Query<Item> query = ofy().load().type(Item.class);
+        List<Item> items;
+        items = query.list();
         return items;
     }
 
@@ -53,7 +42,8 @@ public class ListService {
      * Returns a single item in the list.
      */
     public Item getItem(String itemId){
-        return itemsMap.get(itemId);
+        Result<Item> result = ofy().load().key(Key.create(Item.class, itemId));
+        return result.now();
     }
 
     /**
@@ -61,7 +51,7 @@ public class ListService {
      */
     public Item addItem(Item item){
         item.setItemId(generateUniqueId());
-        itemsMap.put(item.getItemId(), item);
+        ofy().save().entity(item).now();
         return item;
     }
 
@@ -69,10 +59,10 @@ public class ListService {
      * Update item in the list.
      */
     public Item updateItem(Item item){
-        if(item.getItemId() == null){
+        Item tempItem = ofy().load().key(Key.create(Item.class,item.getItemId())).now();
+        if(tempItem == null)
             return null;
-        }
-        itemsMap.put(item.getItemId(), item);
+        ofy().save().entity(item).now();
         return item;
     }
 
@@ -80,6 +70,6 @@ public class ListService {
      * Deletes a item
      */
     public void deleteItem(String itemId){
-        itemsMap.remove(itemId);
+        ofy().delete().key(Key.create(Item.class, itemId)).now();
     }
 }

@@ -32,14 +32,26 @@
       <excludeFolder url="file://$MODULE_DIR$/target/basket-1.0-SNAPSHOT" />
       <excludeFolder url="file://$MODULE_DIR$/target/maven-archiver" />
       <excludeFolder url="file://$MODULE_DIR$/target/maven-status" />
+      <excludeFolder url="file://$MODULE_DIR$/target/surefire-reports" />
       <excludeFolder url="file://$MODULE_DIR$/target/test-classes" />
     </content>
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />
+    <orderEntry type="module-library">
+      <library>
+        <CLASSES>
+          <root url="jar://$USER_HOME$/Downloads/objectify-5.1.11.jar!/" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES />
+      </library>
+    </orderEntry>
     <orderEntry type="library" name="Maven: com.google.appengine:appengine-api-1.0-sdk:1.9.32" level="project" />
     <orderEntry type="library" name="Maven: com.google.appengine:appengine-endpoints:1.9.32" level="project" />
     <orderEntry type="library" scope="PROVIDED" name="Maven: javax.servlet:servlet-api:2.5" level="project" />
     <orderEntry type="library" name="Maven: javax.inject:javax.inject:1" level="project" />
+    <orderEntry type="library" name="Maven: com.googlecode.objectify:objectify:5.1.7" level="project" />
+    <orderEntry type="library" name="Maven: com.google.guava:guava:18.0" level="project" />
     <orderEntry type="library" name="Maven: org.glassfish.jersey.containers:jersey-container-servlet:2.22.2" level="project" />
     <orderEntry type="library" name="Maven: org.glassfish.jersey.containers:jersey-container-servlet-core:2.22.2" level="project" />
     <orderEntry type="library" name="Maven: org.glassfish.hk2.external:javax.inject:2.4.0-b34" level="project" />
@@ -70,6 +82,7 @@
     <orderEntry type="library" scope="TEST" name="Maven: org.mockito:mockito-all:2.0.2-beta" level="project" />
     <orderEntry type="library" scope="TEST" name="Maven: com.google.appengine:appengine-testing:1.9.32" level="project" />
     <orderEntry type="library" scope="TEST" name="Maven: com.google.appengine:appengine-api-stubs:1.9.32" level="project" />
+    <orderEntry type="library" scope="TEST" name="Maven: com.google.appengine:appengine-api-labs:1.9.32" level="project" />
   </component>
 </module>
 
