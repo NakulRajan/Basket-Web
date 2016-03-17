@@ -1,7 +1,7 @@
 /**
  * This view represents the list of items
  */
-define(['text!templates/List.html', 'js/ItemView', 'js/ItemModel', 'Firebase', 'BackboneFire'], function(ListTpl, ItemViewModule, ItemModel){
+define(['text!templates/List.html', 'js/ItemView', 'js/ItemModel'], function(ListTpl, ItemViewModule, ItemModel){
 
     var ItemView = ItemViewModule.ItemView;
     var Item = ItemModel.Item;
@@ -17,9 +17,22 @@ define(['text!templates/List.html', 'js/ItemView', 'js/ItemModel', 'Firebase', '
         },
 
         initialize: function(){
+            var that = this;
             this.collection = new ItemCollection();
             this.listenTo(this.collection, 'add', this.addToList());
-            this.collection.fetch();
+            this.collection.fetch({
+                success: function(items, response){
+                    that.buildList(items, response);
+                }, error: function(){
+                    console.log("Error in retrieving the data");
+                }});
+        },
+
+        buildList: function(items){
+            var that = this;
+            items.each(function(item){
+                that.addToList(item);
+            })
         },
 
         addToList: function(item){

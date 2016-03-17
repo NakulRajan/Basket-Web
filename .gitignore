@@ -1,4 +1,6 @@
 /src/main/webapp/reactJSApp/node_modules
 target
-*/.idea/workspace.xml
+.idea/workspace.xml
 */.idea/tasks.xml
+src/main/webapp/backboneApp/bower_components
+
