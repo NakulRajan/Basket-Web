@@ -17,7 +17,6 @@ define(['text!templates/List.html', 'js/ItemView', 'js/ItemModel'], function(Lis
         },
 
         initialize: function(){
-            var that = this;
             this.collection = new ItemCollection();
 
             //setting up the listeners
@@ -25,17 +24,10 @@ define(['text!templates/List.html', 'js/ItemView', 'js/ItemModel'], function(Lis
 
             this.collection.fetch({
                 success: function(items, response){
-                    that.buildList(items, response);
+                    console.log("Success in retrieving the list");
                 }, error: function(){
                     console.log("Error in retrieving the data");
                 }});
-        },
-
-        buildList: function(items){
-            var that = this;
-            items.each(function(item){
-                that.addToList(item);
-            })
         },
 
         addToList: function(item){

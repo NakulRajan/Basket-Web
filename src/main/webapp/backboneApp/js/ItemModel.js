@@ -7,7 +7,9 @@ define([], function(){
         default:{
             itemName: null,
             itemId: null
-        }
+        },
+        idAttribute: "itemId",
+        urlRoot: "/api/list"
     });
 
     var ItemCollection = Backbone.Collection.extend({

@@ -12,10 +12,10 @@ define(['text!templates/Item.html'], function(ItemTpl){
         },
 
         initialize: function(){
-
+            this.listenTo(this.model, 'destroy', this.remove);
         },
 
-        deleteItem: function(){
+        deleteItem: function(e){
             console.log("Delete clicked");
             this.model.destroy({
                 success: function (model, respose, options) {
