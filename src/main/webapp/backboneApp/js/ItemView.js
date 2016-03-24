@@ -16,10 +16,9 @@ define(['text!templates/Item.html'], function(ItemTpl){
         },
 
         deleteItem: function(e){
-            console.log("Delete clicked");
             this.model.destroy({
                 success: function (model, respose, options) {
-                    console.log("The model has deleted the server");
+                    console.log("The model has been deleted from the server");
                 },
                 error: function (model, xhr, options) {
                     console.log("Something went wrong while deleting the model");

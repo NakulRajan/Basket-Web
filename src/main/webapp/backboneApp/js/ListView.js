@@ -26,7 +26,7 @@ define(['text!templates/List.html', 'js/ItemView', 'js/ItemModel'], function(Lis
                 success: function(items, response){
                     console.log("Success in retrieving the list");
                 }, error: function(){
-                    console.log("Error in retrieving the data");
+                    console.log("Error in retrieving the list");
                 }});
         },
 
