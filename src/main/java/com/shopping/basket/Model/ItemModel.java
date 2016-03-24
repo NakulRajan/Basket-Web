@@ -11,17 +11,17 @@ import javax.xml.bind.annotation.XmlRootElement;
  */
 @XmlRootElement
 @Entity
-public class Item {
+public class ItemModel {
     @Id
     private String itemId;
     private String itemName;
 
     //empty constructor needed
-    public Item(){
+    public ItemModel(){
 
     }
 
-    public Item(String itemId, String itemName){
+    public ItemModel(String itemId, String itemName){
         this.itemId = itemId;
         this.itemName = itemName;
     }

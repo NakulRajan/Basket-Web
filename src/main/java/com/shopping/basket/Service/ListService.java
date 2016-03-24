@@ -3,7 +3,7 @@ package com.shopping.basket.Service;
 import com.googlecode.objectify.Key;
 import com.googlecode.objectify.Result;
 import com.googlecode.objectify.cmd.Query;
-import com.shopping.basket.Model.Item;
+import com.shopping.basket.Model.ItemModel;
 
 import java.util.List;
 import java.util.Random;
@@ -31,45 +31,45 @@ public class ListService {
     /**
      * Returns all the items in the list.
      */
-    public List<Item> getList(){
-        Query<Item> query = ofy().load().type(Item.class);
-        List<Item> items;
-        items = query.list();
-        return items;
+    public List<ItemModel> getList(){
+        Query<ItemModel> query = ofy().load().type(ItemModel.class);
+        List<ItemModel> itemModels;
+        itemModels = query.list();
+        return itemModels;
     }
 
     /**
      * Returns a single item in the list.
      */
-    public Item getItem(String itemId){
-        Result<Item> result = ofy().load().key(Key.create(Item.class, itemId));
+    public ItemModel getItem(String itemId){
+        Result<ItemModel> result = ofy().load().key(Key.create(ItemModel.class, itemId));
         return result.now();
     }
 
     /**
      * Adds a new item to the list.
      */
-    public Item addItem(Item item){
-        item.setItemId(generateUniqueId());
-        ofy().save().entity(item).now();
-        return item;
+    public ItemModel addItem(ItemModel itemModel){
+        itemModel.setItemId(generateUniqueId());
+        ofy().save().entity(itemModel).now();
+        return itemModel;
     }
 
     /**
      * Update item in the list.
      */
-    public Item updateItem(Item item){
-        Item tempItem = ofy().load().key(Key.create(Item.class,item.getItemId())).now();
-        if(tempItem == null)
+    public ItemModel updateItem(ItemModel itemModel){
+        ItemModel tempItemModel = ofy().load().key(Key.create(ItemModel.class, itemModel.getItemId())).now();
+        if(tempItemModel == null)
             return null;
-        ofy().save().entity(item).now();
-        return item;
+        ofy().save().entity(itemModel).now();
+        return itemModel;
     }
 
     /**
      * Deletes a item
      */
     public void deleteItem(String itemId){
-        ofy().delete().key(Key.create(Item.class, itemId)).now();
+        ofy().delete().key(Key.create(ItemModel.class, itemId)).now();
     }
 }

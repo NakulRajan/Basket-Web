@@ -3,7 +3,7 @@ package com.shopping.basket;
 import com.googlecode.objectify.Objectify;
 import com.googlecode.objectify.ObjectifyFactory;
 import com.googlecode.objectify.ObjectifyService;
-import com.shopping.basket.Model.Item;
+import com.shopping.basket.Model.ItemModel;
 
 /**
  * Objectify service wrapper so we can statically register our persistence classes
@@ -12,7 +12,7 @@ import com.shopping.basket.Model.Item;
 public class OfyService {
 
     static {
-        factory().register(Item.class);
+        factory().register(ItemModel.class);
 
     }
 

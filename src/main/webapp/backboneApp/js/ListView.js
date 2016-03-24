@@ -19,7 +19,10 @@ define(['text!templates/List.html', 'js/ItemView', 'js/ItemModel'], function(Lis
         initialize: function(){
             var that = this;
             this.collection = new ItemCollection();
-            this.listenTo(this.collection, 'add', this.addToList());
+
+            //setting up the listeners
+            this.listenTo(this.collection, 'add', this.addToList);
+
             this.collection.fetch({
                 success: function(items, response){
                     that.buildList(items, response);
@@ -46,8 +49,8 @@ define(['text!templates/List.html', 'js/ItemView', 'js/ItemModel'], function(Lis
         createItem: function(){
             var itemValue = this.$('#itemVal').val();
             if(itemValue !=  "") {
-                var item = new Item({itemName: itemValue, uniqueId: "1"});
-                this.collection.add(item);
+                var item = new Item({itemName: itemValue, itemId: null});
+                this.collection.create(item);
             }else{
                 console.log("Please enter a valid input");
             }

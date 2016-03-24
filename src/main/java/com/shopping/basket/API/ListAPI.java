@@ -1,6 +1,6 @@
 package com.shopping.basket.API;
 
-import com.shopping.basket.Model.Item;
+import com.shopping.basket.Model.ItemModel;
 import com.shopping.basket.Service.ListService;
 
 import javax.ws.rs.*;
@@ -15,26 +15,26 @@ public class ListAPI {
     private ListService listService = new ListService();
 
     @GET
-    public List<Item> getList(){
+    public List<ItemModel> getList(){
         return listService.getList();
     }
 
     @GET
     @Path("/{itemId}")
-    public Item getItem(@PathParam("itemId") String itemId){
+    public ItemModel getItem(@PathParam("itemId") String itemId){
         return listService.getItem(itemId);
     }
 
     @POST
-    public Item createItem(Item item){
-        return listService.addItem(item);
+    public ItemModel createItem(ItemModel itemModel){
+        return listService.addItem(itemModel);
     }
 
     @PUT
     @Path("/{itemId}")
-    public Item updateItem(@PathParam("itemId")String itemId, Item item){
-        item.setItemId(itemId);
-        return listService.updateItem(item);
+    public ItemModel updateItem(@PathParam("itemId")String itemId, ItemModel itemModel){
+        itemModel.setItemId(itemId);
+        return listService.updateItem(itemModel);
     }
 
     @DELETE

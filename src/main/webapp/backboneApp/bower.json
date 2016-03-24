@@ -21,6 +21,7 @@
     "requirejs": "~2.1.22",
     "backbone": "~1.2.3",
     "text": "~2.0.14",
-    "bootstrap": "~3.3.6"
+    "bootstrap": "~3.3.6",
+    "font-awesome": "~4.5.0"
   }
 }

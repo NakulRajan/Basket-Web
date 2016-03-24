@@ -1,10 +1,35 @@
 .itemList{
     list-style-type: none;
     min-height: 200px;
+    padding: 0;
 }
 
 .items{
+
+}
+
+.item {
+    border-radius: 3px;
+    min-height: 50px;
     padding: 10px;
+    border: 1px solid lightgrey;
+}
+
+.deleteIcon{
+    visibility: hidden;
+}
+
+.item:hover .deleteIcon{
+    cursor: pointer;
+    visibility: visible;
+    margin-top: 5px;
+}
+
+.item a{
+    text-decoration: none;
+    font-size: 16px;
+    font-family: cursive;
+    display: inline-block;
 }
 
 .list{
