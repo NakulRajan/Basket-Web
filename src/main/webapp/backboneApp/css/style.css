@@ -35,3 +35,28 @@
 .list{
     background-color: #f1f1f1;
 }
+
+/*******   List of List styling **************/
+.listOfList{
+    list-style-type: none;
+    min-height: 200px;
+    padding: 0;
+}
+
+.listItem {
+    border-radius: 3px;
+    min-height: 50px;
+    padding: 10px;
+    border: 1px solid lightgrey;
+}
+
+.listItem a{
+    text-decoration: none;
+    font-size: 16px;
+    font-family: cursive;
+    display: inline-block;
+}
+
+.listItem :hover{
+    cursor: pointer
+}

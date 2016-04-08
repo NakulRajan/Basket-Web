@@ -20,11 +20,10 @@
 <script src="js/Config.js"></script>
 
 <script>
-    require(['js/ListView'], function(ListViewModule){
-        var ListView = ListViewModule.ListView;
-        var listView = new ListView();
-        listView.render();
-        $('.container').html(listView.$el);
+    require(['js/controllers/AppController', 'js/views/AppView'], function(Controller, AppView){
+        var AppController = Controller.AppController;
+        AppView.AppController = new AppController();
+        Backbone.history.start();
     });
 </script>
 </body>

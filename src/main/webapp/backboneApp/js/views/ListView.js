@@ -1,7 +1,7 @@
 /**
  * This view represents the list of items
  */
-define(['text!templates/List.html', 'js/ItemView', 'js/ItemModel'], function(ListTpl, ItemViewModule, ItemModel){
+define(['text!templates/List.html', 'js/views/ItemView', 'js/models/ItemModel'], function(ListTpl, ItemViewModule, ItemModel){
 
     var ItemView = ItemViewModule.ItemView;
     var Item = ItemModel.Item;
