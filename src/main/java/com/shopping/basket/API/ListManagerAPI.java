@@ -3,10 +3,7 @@ package com.shopping.basket.API;
 import com.shopping.basket.Model.ListModel;
 import com.shopping.basket.Service.ListManagerService;
 
-import javax.ws.rs.Consumes;
-import javax.ws.rs.GET;
-import javax.ws.rs.Path;
-import javax.ws.rs.Produces;
+import javax.ws.rs.*;
 import javax.ws.rs.core.MediaType;
 import java.util.List;
 
@@ -22,5 +19,10 @@ public class ListManagerAPI {
     @GET
     public List<ListModel> getAllList(){
         return this.listManager.getAllList();
+    }
+
+    @POST
+    public ListModel addList(ListModel listModel){
+        return this.listManager.addList(listModel);
     }
 }

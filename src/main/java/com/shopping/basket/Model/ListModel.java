@@ -1,11 +1,18 @@
 package com.shopping.basket.Model;
 
+import com.googlecode.objectify.annotation.Entity;
+import com.googlecode.objectify.annotation.Id;
+
+import javax.xml.bind.annotation.XmlRootElement;
+
 /**
  * Represents an List in the app.
  */
+@XmlRootElement
+@Entity
 public class ListModel {
 
-    private Integer listId;
+    @Id private Integer listId;
     private String listName;
     private String listDescription;
 
