@@ -10,7 +10,7 @@ import java.util.Random;
 
 import static com.shopping.basket.OfyService.ofy;
 
-public class ListService {
+public class ListItemService {
     /**
      * Utility function to generate unique ids
      */

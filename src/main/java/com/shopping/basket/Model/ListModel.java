@@ -12,7 +12,7 @@ import javax.xml.bind.annotation.XmlRootElement;
 @Entity
 public class ListModel {
 
-    @Id private Integer listId;
+    @Id private Long listId;
     private String listName;
     private String listDescription;
 
@@ -21,17 +21,17 @@ public class ListModel {
 
     }
 
-    public ListModel(Integer listId, String listName, String listDescription){
+    public ListModel(Long listId, String listName, String listDescription){
         this.listId = listId;
         this.listName = listName;
         this.listDescription = listDescription;
     }
     
-    public Integer getListId() {
+    public Long getListId() {
         return listId;
     }
 
-    public void setListId(Integer listId) {
+    public void setListId(Long listId) {
         this.listId = listId;
     }
 
@@ -50,4 +50,34 @@ public class ListModel {
     public void setListDescription(String listDescription) {
         this.listDescription = listDescription;
     }
+
+    /**
+     * Updates the ListModel with the given listModel.
+     * @param listModel new ListModel.
+     */
+    public void update(ListModel listModel){
+        this.setListName(listModel.getListName());
+        this.setListDescription(listModel.getListDescription());
+    }
+
+    @Override
+    public boolean equals(Object o){
+        if(this == o)
+            return true;
+
+        if( (o==null) || (this.getClass() != o.getClass()))
+            return false;
+
+        ListModel listModel = (ListModel) o;
+        return  (listId != null) && (listId.equals(listModel.listId));
+    }
+
+
+    @Override
+    public int hashCode(){
+        int hash = 7;
+        hash = 31 * hash + (null == listId? 0: listId.hashCode());
+        return hash;
+    }
+
 }

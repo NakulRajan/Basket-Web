@@ -10,7 +10,7 @@ import java.util.List;
 /**
  * List's all the list's of the user.
  */
-@Path("/mylists")
+@Path("/lists")
 @Consumes(MediaType.APPLICATION_JSON)
 @Produces(MediaType.APPLICATION_JSON)
 public class ListManagerAPI {
@@ -21,8 +21,28 @@ public class ListManagerAPI {
         return this.listManager.getAllList();
     }
 
+    @GET
+    @Path("/{listId}")
+    public ListModel getListModel(@PathParam("listId") Long listId){
+        return this.listManager.getListModel(listId);
+    }
+
     @POST
     public ListModel addList(ListModel listModel){
         return this.listManager.addList(listModel);
     }
+
+    @PUT
+    @Path("/{listId}")
+    public ListModel updateList(@PathParam("listId") Long listId, ListModel listModel){
+        listModel.setListId(listId);
+        return this.listManager.update(listModel);
+    }
+
+    @DELETE
+    @Path("/{listId}")
+    public void deleteList(@PathParam("listId") Long listId){
+         this.listManager.deleteListEntry(listId);
+    }
+
 }
