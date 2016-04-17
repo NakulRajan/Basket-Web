@@ -45,4 +45,9 @@ public class ListManagerAPI {
          this.listManager.deleteListEntry(listId);
     }
 
+    @Path("/{listId}/listItems/")
+    public ListItemAPI getListItems(){
+        return new ListItemAPI();
+    }
+
 }
