@@ -11,17 +11,29 @@ define(['js/views/AppView', 'text!templates/ListManager.html', 'text!templates/L
         var ListItem  = Backbone.View.extend({
 
             events: {
-                "click .listItem": "showList"
+                "click .listItemGroup": "showList",
+                "click .deleteIcon": "onDelete"
             },
 
             template: _.template(ListItemTpl),
 
             initialize: function(){
+                this.listenTo(this.model, 'destroy', this.remove);
+            },
 
+            onDelete: function(){
+                this.model.destroy({
+                    success: function (model, respose, options) {
+                        console.log("List Item deleted " + model);
+                    },
+                    error: function (model, xhr, options) {
+                        console.log("Something went wrong while deleting list");
+                    }
+                })
             },
 
             showList: function(){
-                AppView.AppController.navigate("list/" + this.model.get('listId'), {trigger:true});
+                AppView.AppController.navigate("lists/" + this.model.get('listId'), {trigger:true});
             },
 
             render: function () {

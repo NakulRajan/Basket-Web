@@ -10,7 +10,7 @@ define(["../views/AppView", "../views/ListManagerView", "../views/ListView"], fu
     var AppRouter = Backbone.Router.extend({
         routes: {
             "" : "myLists",
-            "list/:listid": "showList"
+            "lists/:listid": "showList"
         },
 
         myLists: function(){
@@ -18,7 +18,7 @@ define(["../views/AppView", "../views/ListManagerView", "../views/ListView"], fu
         },
 
         showList: function(listId){
-            AppView.showView(new ListView(listId));
+            AppView.showView(new ListView({listId: listId}));
         }
 
     });

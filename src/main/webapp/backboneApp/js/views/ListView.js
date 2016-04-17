@@ -16,9 +16,9 @@ define(['text!templates/List.html', 'js/views/ItemView', 'js/models/ItemModel'],
             'keypress #itemVal': "onEnter"
         },
 
-        initialize: function(){
+        initialize: function(options){
             this.collection = new ItemCollection();
-
+            this.collection.setUrl(options.listId);
             //setting up the listeners
             this.listenTo(this.collection, 'add', this.addToList);
 

@@ -8,12 +8,14 @@ define([], function(){
             listId: null,
             listName: null,
             listDescription: null
-        }
+        },
+        idAttribute: "listId"
+
     });
 
     var ListCollection = Backbone.Collection.extend({
         model: ListManagerModel,
-        url: "/api/mylists"
+        url: "/api/lists"
     });
 
     return{

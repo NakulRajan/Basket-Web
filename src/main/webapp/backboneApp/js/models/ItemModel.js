@@ -8,13 +8,17 @@ define([], function(){
             itemName: null,
             itemId: null
         },
-        idAttribute: "itemId",
-        urlRoot: "/api/list"
+        idAttribute: "itemId"
     });
 
     var ItemCollection = Backbone.Collection.extend({
         model: Item,
-        url: "/api/list"
+        url: "",
+        baseUrl: "/api/lists/",
+
+        setUrl: function(listId){
+            this.url = this.baseUrl + listId + "/listItems"
+        }
     });
 
     return{

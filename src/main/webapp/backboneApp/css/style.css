@@ -1,11 +1,8 @@
+/*************** List Item View styling ***********************/
 .itemList{
     list-style-type: none;
     min-height: 200px;
     padding: 0;
-}
-
-.items{
-
 }
 
 .item {
@@ -36,7 +33,7 @@
     background-color: #f1f1f1;
 }
 
-/*******   List of List styling **************/
+/************  List of List styling **************/
 .listOfList{
     list-style-type: none;
     min-height: 200px;
@@ -57,6 +54,12 @@
     display: inline-block;
 }
 
-.listItem :hover{
+.listItem:hover {
     cursor: pointer
+}
+
+.listItem:hover .deleteIcon{
+    margin-top: -30px;
+    visibility: visible;
+    cursor: pointer;
 }
